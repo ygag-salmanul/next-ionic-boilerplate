@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 
-const dashboard = ({prod}) => {
+const Dashboard = ({prod}:any) => {
   const router = useRouter()
   const click=()=>{
     router.push('/tabs/lists')
@@ -10,14 +10,14 @@ const dashboard = ({prod}) => {
     <div>
     <button onClick={click}>click</button>
 
-      {prod.products.map((i)=>(
+      {prod.products.map((i:any)=>(
       <h1 key={i.id}>{i.title}</h1>
     ))}
       </div>
   )
 }
 
-export default dashboard
+export default Dashboard
 
 export async function getServerSideProps() {
   const res = await fetch('https://dummyjson.com/products')
