@@ -1,0 +1,67 @@
+.container{
+    padding:40px 16px 80px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    &-ring{
+        @extend .round;
+        background-color: #f8f2f1;
+        @extend .center
+    }
+    &-about-gift{
+        width:22.2px;
+        height: 17.8px;
+    }
+    &-ring2{
+        
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #f2f5f8;
+        @extend .center
+    }
+    &-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+    }
+    &-buttons{
+        display: flex;
+        gap: 10px;
+    }
+    &-title{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        h3{
+            font-size: 24px;
+            font-weight: 600;
+        }
+        &-secondary{
+            color:#1f1f1f ;
+        }
+        p{
+            font-size: 14px;
+            color: #8e8e8e;
+        }
+    }
+    &-description{
+        font-size: 14px;
+        color: #1f1f1f;
+        line-height: 1.6;
+    }
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.round{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.primary{
+    color: #b0776c;
+}

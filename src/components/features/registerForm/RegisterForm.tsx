@@ -1,42 +1,19 @@
-import React from "react";
-import styles from "./LoginForm.module.scss";
+import { IonContent, IonPage } from "@ionic/react";
+import styles from "./RegisterForm.module.scss";
 import Link from "next/link";
-import {
-  IonBackButton,
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  useIonRouter,
-} from "@ionic/react";
 import { useHistory } from "react-router-dom";
 
-const LoginForm = ({
-  isOtpVerification = false,
-}: {
-  isOtpVerification?: boolean;
-}) => {
+const RegisterForm = ({ isOtpVerification = false }) => {
   const history = useHistory();
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    if (!isOtpVerification) {
-      history.push("/login/verify");
-    }else {
-      history.push('/home')
+  const handleSubmit = () => {
+    if (isOtpVerification) {
+      history.push("/login");
+    } else {
+      history.push("/signup/verify");
     }
   };
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton color={"dark"}></IonBackButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
       <IonContent>
         <div className={styles.container}>
           <img
@@ -45,11 +22,23 @@ const LoginForm = ({
             width={151.7}
             alt="logo"
           />
-          <h2 className={styles.greeting}>Welcome Back</h2>
+          <h2 className={styles.greeting}>Create an Account</h2>
           <p className={styles["dimmed-text"]}>
-            Don’t have an account?&nbsp;
-            <span className={styles["highlighted-text"]}>Get Started</span>
+            Already have an account?&nbsp;
+            <span className={styles["highlighted-text"]}>Login</span>
           </p>
+          <h6 className={styles["input-label"]}>First Name</h6>
+          <div className={styles["input-box"]}>
+            <input type="text" defaultValue={"Ahmed"} />
+          </div>
+          <h6 className={styles["input-label"]}>Last Name</h6>
+          <div className={styles["input-box"]}>
+            <input type="text" defaultValue={"Nazouri"} />
+          </div>
+          <h6 className={styles["input-label"]}>Email ID</h6>
+          <div className={styles["input-box"]}>
+            <input type="text" defaultValue={"ahmed@email.com"} />
+          </div>
           <h6 className={styles["input-label"]}>Mobile Number</h6>
           <div className={styles["input-box"]}>
             <div className={styles["input-box__country-select"]}>+971</div>
@@ -74,8 +63,10 @@ const LoginForm = ({
             </>
           )}
           <div className={styles["submit-btn__container"]}>
-            <button onClick={handleSubmit} className={styles["submit-btn"]}>
-              {isOtpVerification ? "Login" : "Request Verification Code"}
+            <button className={styles["submit-btn"]} onClick={handleSubmit}>
+              {isOtpVerification
+                ? "Create Account"
+                : "Request Verification Code"}
             </button>
           </div>
         </div>
@@ -84,4 +75,4 @@ const LoginForm = ({
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

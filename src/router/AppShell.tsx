@@ -15,6 +15,9 @@ import LoginPage from "../components/pages/Login.Page";
 import VerifyLoginPage from "../components/pages/VerifyLogin.Page";
 import { useState } from "react";
 import { SafeArea } from "capacitor-plugin-safe-area";
+import RegisterPage from "../components/pages/Register.Page";
+import HomePage from "../components/pages/Home.Page";
+import VerifyRegisterPage from "../components/pages/VerifyRegister.Page";
 
 setupIonicReact({});
 
@@ -24,14 +27,17 @@ const AppShell = () => {
     setHeight(statusBarHeight);
   });
   return (
-    <IonApp style={{ marginTop: height }}>
+    <IonApp className={"main"} style={{ marginTop: height }}>
       <IonReactRouter>
         <IonRouterOutlet id="main">
+          <Route path="/signup" exact component={RegisterPage} />
+          <Route path="/signup/verify" exact component={VerifyRegisterPage} />
           <Route path="/login" exact component={LoginPage} />
           <Route path="/login/verify" component={VerifyLoginPage} />
+          <Route path="/home" component={HomePage} />
           <Route
             path="/"
-            render={() => <Redirect to="/login" />}
+            render={() => <Redirect to="/signup" />}
             exact={true}
           />
         </IonRouterOutlet>

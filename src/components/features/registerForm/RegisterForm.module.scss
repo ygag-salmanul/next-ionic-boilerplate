@@ -1,0 +1,92 @@
+.container {
+    padding: 24px 16px;
+  }
+  
+  .greeting {
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1f1f1f;
+  }
+  
+  .dimmed-text {
+    font-size: 14px;
+    font-weight: normal;
+    color: #8e8e8e;
+    margin: 16px 0 40px;
+  }
+  
+  .highlighted-text {
+    color: #1f1f1f;
+    font-weight: 600;
+  }
+  
+  .input-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f1f1f;
+    margin-top: 24px;
+  }
+  
+  .input-box {
+    margin-top: 10px;
+    height: 55px;
+    width: 100%;
+    border-radius: 6px;
+    background-color: #f2f5f8;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 10px;
+  
+    &__country-select {
+      width: 58px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      border-right: solid 1px #d8d8d8;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1f1f1f;
+    }
+  
+    input {
+      @extend .remove-default-input-styles;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1f1f1f;
+      font-family: inherit;
+    }
+  }
+  
+  .otp-input {
+    letter-spacing: 7px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: #b0776c;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    font-family: inherit;
+  
+    &__container {
+      margin-top: 40px;
+    }
+  }
+  
+  .remove-default-input-styles {
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    border: none;
+    background: none;
+  }
+  
