@@ -17,13 +17,6 @@ const HomePage = () => {
   return (
     <>
       <IonPage>
-        <IonHeader>
-          <IonToolbar>
-            <IonButtons slot="start">
-              <IonBackButton color={"dark"}></IonBackButton>
-            </IonButtons>
-          </IonToolbar>
-        </IonHeader>
         <IonContent>
           <Header />
           <Banner />

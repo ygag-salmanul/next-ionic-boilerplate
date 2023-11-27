@@ -16,12 +16,6 @@ const RegisterForm = ({ isOtpVerification = false }) => {
     <IonPage>
       <IonContent>
         <div className={styles.container}>
-          <img
-            src="/assets/corporate-logo.png"
-            height={70}
-            width={151.7}
-            alt="logo"
-          />
           <h2 className={styles.greeting}>Create an Account</h2>
           <p className={styles["dimmed-text"]}>
             Already have an account?&nbsp;

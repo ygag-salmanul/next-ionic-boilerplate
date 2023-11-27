@@ -12,7 +12,7 @@ const Accordions = () => {
         <h3 className={styles["content-main"]}>We know you are curious!</h3>
       </div>
       <div className="">
-        <div className={styles["accordion-wrapper"]}>
+        <div className={`styles["accordion-wrapper"] landing-accordion`}>
           <Accordion className={styles["accordion"]}>
             <AccordionSummary expandIcon={<AddIcon fontSize="large" />}>
               <Typography fontSize={16} height={32}>

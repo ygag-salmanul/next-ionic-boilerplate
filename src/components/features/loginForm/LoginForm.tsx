@@ -7,6 +7,8 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
+  IonIcon,
+  IonImg,
   IonPage,
   IonTitle,
   IonToolbar,
@@ -24,8 +26,8 @@ const LoginForm = ({
     e.preventDefault();
     if (!isOtpVerification) {
       history.push("/login/verify");
-    }else {
-      history.push('/home')
+    } else {
+      history.push("/home");
     }
   };
   return (
@@ -35,16 +37,11 @@ const LoginForm = ({
           <IonButtons slot="start">
             <IonBackButton color={"dark"}></IonBackButton>
           </IonButtons>
+          <IonTitle className="ion-text-center">Login</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <div className={styles.container}>
-          <img
-            src="/assets/corporate-logo.png"
-            height={70}
-            width={151.7}
-            alt="logo"
-          />
           <h2 className={styles.greeting}>Welcome Back</h2>
           <p className={styles["dimmed-text"]}>
             Don’t have an account?&nbsp;
