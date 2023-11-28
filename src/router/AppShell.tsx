@@ -7,6 +7,7 @@ import {
   IonTabBar,
   IonTabButton,
   IonIcon,
+  isPlatform,
 } from "@ionic/react";
 
 import { IonReactRouter } from "@ionic/react-router";
@@ -26,8 +27,11 @@ const AppShell = () => {
   SafeArea.getStatusBarHeight().then(({ statusBarHeight }) => {
     setHeight(statusBarHeight);
   });
+
+  const isAndroid = isPlatform("android");
+
   return (
-    <IonApp className={"main"} style={{ marginTop: height }}>
+    <IonApp className={"main"} style={{ marginTop: !isAndroid ? height : 0 }}>
       <IonReactRouter>
         <IonRouterOutlet id="main">
           <Route path="/signup" exact component={RegisterPage} />

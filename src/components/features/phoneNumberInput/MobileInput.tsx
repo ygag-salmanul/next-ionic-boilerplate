@@ -12,8 +12,6 @@ const PhoneNumberInput = ({
   setCountryCode,
   disable
 }: any) => {
-  console.log(phoneNumber)
-  console.log(countryCode)
     const handleCountryCodeChange = (event: SelectChangeEvent) => {
       setCountryCode(event.target.value as string);
   };
@@ -27,7 +25,6 @@ const PhoneNumberInput = ({
       currentValue = currentValue.slice(0, 12);
     }
     setPhoneNumber(currentValue);
-    console.log(phoneNumber,'///')
   };
   return (
     <div className={`${styles.phonenumberinput} phonenumberinput`}>

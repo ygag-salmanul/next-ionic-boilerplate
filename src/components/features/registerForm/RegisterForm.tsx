@@ -11,41 +11,24 @@ import styles from "./RegisterForm.module.scss";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PhoneNumberInput from "../phoneNumberInput/MobileInput";
+import { CountDownType } from "@/src/interfaces/common.interface";
+import Countdown from "../common/otpCountdown/CountDown";
 
 const RegisterForm = ({ isOtpVerification = false }) => {
   const history = useHistory();
-  const [countdown, setCountdown] = useState(24);
   const [phoneNumber, setPhoneNumber] = useState(5555555555);
   const [countryCode, setCountryCode] = useState("");
-  const [resend, setResend] = useState(false);
-  useEffect(() => {    
-    let intervalId: any;
-    if (countdown > 0 && resend) {
-      intervalId = setInterval(() => {
-        setCountdown((prevTimer) => prevTimer - 1);
-      }, 1000);
-    } else {
-      clearInterval(intervalId);
-      setResend(false);
+  const [countDownStatus, setCountDownStatus] =
+    useState<CountDownType>("start");
+    
+    const handleResend=()=>{
+      setCountDownStatus("start")
     }
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [countdown,resend]);
-  const handleResend = () => {
-    if (countdown == 0) {
-      setCountdown(24);
-      setResend(true);
-    }
-    setCountdown(24);
-    setResend(true);
-  };
 
   const handleSubmit = () => {
     if (isOtpVerification) {
       history.push("/login");
     } else {
-      setResend(true);
       history.push("/signup/verify");
     }
   };
@@ -93,16 +76,16 @@ const RegisterForm = ({ isOtpVerification = false }) => {
           </div>
           <h6 className={styles["input-label"]}>Mobile Number</h6>
           {/* <div className={styles["input-box"]}> */}
-            {/* <div className={styles["input-box__country-select"]}> */}
-              <PhoneNumberInput
-                disable={isOtpVerification}
-                phoneNumber={phoneNumber}
-                setPhoneNumber={setPhoneNumber}
-                countryCode={countryCode}
-                setCountryCode={setCountryCode}
-              />
-            {/* </div> */}
-            {/* <input
+          {/* <div className={styles["input-box__country-select"]}> */}
+          <PhoneNumberInput
+            disable={isOtpVerification}
+            phoneNumber={phoneNumber}
+            setPhoneNumber={setPhoneNumber}
+            countryCode={countryCode}
+            setCountryCode={setCountryCode}
+          />
+          {/* </div> */}
+          {/* <input
               disabled={isOtpVerification ? true : false}
               type="text"
               defaultValue={"55 555 55555"}
@@ -121,13 +104,24 @@ const RegisterForm = ({ isOtpVerification = false }) => {
               <p
                 className={`${styles["dimmed-text"]} ${styles["no-margin-bottom"]}`}
               >
-                <span onClick={handleResend}>
-                  {" "}
-                  Resend Verification Code in &nbsp;
-                </span>
-                <span className={styles["highlighted-text"]}>
-                  00:{countdown}
-                </span>
+                {countDownStatus == "finished" ? (
+                  <p>
+                    Didnt get a code ?
+                    <span onClick={handleResend} className={styles["highlighted-text"]}>
+                      &nbsp;Resend
+                    </span>
+                  </p>
+                ) : (
+                  <>
+                    <span>Resend Verification Code in &nbsp;</span>
+                    <span className={styles["highlighted-text"]}>
+                      <Countdown
+                        status={countDownStatus}
+                        setStatus={setCountDownStatus}
+                      />
+                    </span>
+                  </>
+                )}
               </p>
             </>
           )}

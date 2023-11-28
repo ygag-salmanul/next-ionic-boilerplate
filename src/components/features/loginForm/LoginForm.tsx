@@ -16,6 +16,8 @@ import {
 } from "@ionic/react";
 import { useHistory } from "react-router-dom";
 import PhoneNumberInput from "../phoneNumberInput/MobileInput";
+import { CountDownType } from "@/src/interfaces/common.interface";
+import Countdown from "../common/otpCountdown/CountDown";
 
 const LoginForm = ({
   isOtpVerification = false,
@@ -23,33 +25,16 @@ const LoginForm = ({
   isOtpVerification?: boolean;
 }) => {
   const history = useHistory();
-  const [countdown, setCountdown] = useState(24);
+  // const [countdown, setCountdown] = useState(24);
   const [phoneNumber, setPhoneNumber] = useState(5555555555);
   const [countryCode, setCountryCode] = useState("");
-  const [resend, setResend] = useState(false);
+  // const [resend, setResend] = useState(false);
+  const [countDownStatus, setCountDownStatus] =
+    useState<CountDownType>("start");
 
-  useEffect(() => {    
-    let intervalId: any;
-    if (countdown > 0 && resend) {
-      intervalId = setInterval(() => {
-        setCountdown((prevTimer) => prevTimer - 1);
-      }, 1000);
-    } else {
-      clearInterval(intervalId);
-      setResend(false);
+    const handleResend=()=>{
+      setCountDownStatus("start")
     }
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [countdown,resend]);
-  const handleResend = () => {
-    if (countdown == 0) {
-      setCountdown(24);
-      setResend(true);
-    }
-    setCountdown(24);
-    setResend(true);
-  };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -100,11 +85,30 @@ const LoginForm = ({
                   defaultValue={"123456"}
                 />
               </div>
-              <p onClick={handleResend}
+              <p
                 className={`${styles["dimmed-text"]} ${styles["no-margin-bottom"]}`}
               >
-                Resend Verification Code in&nbsp;
-                <span className={styles["highlighted-text"]}>00:{countdown}</span>
+                {countDownStatus == "finished" ? (
+                  <p>
+                    Didnt get a code ?
+                    <span
+                      onClick={handleResend}
+                      className={styles["highlighted-text"]}
+                    >
+                      &nbsp;Resend
+                    </span>
+                  </p>
+                ) : (
+                  <>
+                    <span>Resend Verification Code in &nbsp;</span>
+                    <span className={styles["highlighted-text"]}>
+                      <Countdown
+                        status={countDownStatus}
+                        setStatus={setCountDownStatus}
+                      />
+                    </span>
+                  </>
+                )}
               </p>
             </>
           )}

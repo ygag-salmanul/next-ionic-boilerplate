@@ -54,7 +54,7 @@ const Accordions = () => {
                 <ul>
                   <li>
                     Visit our website and register for our cardholder portal, if
-                    you haven't already.
+                    you haven&apos;t already.
                   </li>
                   <li>
                     Log in to your cardholder portal account and navigate to the
