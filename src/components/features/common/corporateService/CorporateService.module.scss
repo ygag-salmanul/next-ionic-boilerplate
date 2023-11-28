@@ -1,8 +1,8 @@
 .container{
     padding:40px 16px 80px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    // display: flex;
+    // flex-direction: column;
+    // gap: 24px;
     &-ring{
         @extend .round;
         background-color: #f8f2f1;
@@ -30,6 +30,7 @@
         gap: 10px;
     }
     &-title{
+        margin-top: 24px;
         display: flex;
         flex-direction: column;
         gap: 16px;
@@ -47,6 +48,7 @@
         }
     }
     &-description{
+        margin-top: 24px;
         font-size: 14px;
         color: #1f1f1f;
         line-height: 1.6;

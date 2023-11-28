@@ -26,6 +26,9 @@ a {
     box-shadow:  none;
     
   }
+  .MuiAccordionSummary-root{
+    padding: 0;
+  }
   .MuiAccordion-root:first-of-type{
     border-top: 1px solid #dee5ed;
   }
