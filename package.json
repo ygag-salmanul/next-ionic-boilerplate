@@ -9,16 +9,32 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@capacitor/android": "^5.5.1",
+    "@capacitor/core": "^5.5.1",
+    "@capacitor/ios": "^5.5.1",
+    "@capacitor/share": "^5.0.6",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@ionic/react": "^7.5.5",
+    "@ionic/react-router": "^7.5.5",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/material": "^5.14.18",
+    "capacitor-plugin-safe-area": "^2.0.5",
+    "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.3"
+    "react-router-dom": "^5.3.4",
+    "sass": "^1.69.5",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@capacitor/cli": "^5.5.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-router-dom": "^5.3.3",
     "eslint": "^8",
-    "eslint-config-next": "14.0.3"
+    "eslint-config-next": "14.0.3",
+    "typescript": "^5"
   }
 }
