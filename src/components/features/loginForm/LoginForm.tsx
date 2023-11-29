@@ -25,16 +25,14 @@ const LoginForm = ({
   isOtpVerification?: boolean;
 }) => {
   const history = useHistory();
-  // const [countdown, setCountdown] = useState(24);
   const [phoneNumber, setPhoneNumber] = useState(5555555555);
   const [countryCode, setCountryCode] = useState("");
-  // const [resend, setResend] = useState(false);
   const [countDownStatus, setCountDownStatus] =
     useState<CountDownType>("start");
 
-    const handleResend=()=>{
-      setCountDownStatus("start")
-    }
+  const handleResend = () => {
+    setCountDownStatus("start");
+  };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -47,21 +45,23 @@ const LoginForm = ({
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar mode="ios">
           <IonButtons slot="start">
             <IonBackButton color={"dark"}></IonBackButton>
           </IonButtons>
           <IonTitle className="ion-text-center">
-            {" "}
-            <h2 className={styles.greeting}>Welcome Back</h2>
+            <h2 className={styles.greeting}>Login</h2>
           </IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <div className={styles.container}>
+          <h2 className={styles.greeting}>Welcome Back</h2>
           <p className={styles["dimmed-text"]}>
             Don’t have an account?&nbsp;
-            <span className={styles["highlighted-text"]}>Get Started</span>
+            <Link href={"/"} className={styles["highlighted-text"]}>
+              Get Started
+            </Link>
           </p>
           <h6 className={styles["input-label"]}>Mobile Number</h6>
           {/* <div className={styles["input-box"]}>

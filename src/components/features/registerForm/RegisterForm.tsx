@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import PhoneNumberInput from "../phoneNumberInput/MobileInput";
 import { CountDownType } from "@/src/interfaces/common.interface";
 import Countdown from "../common/otpCountdown/CountDown";
+import Link from "next/link";
 
 const RegisterForm = ({ isOtpVerification = false }) => {
   const history = useHistory();
@@ -20,10 +21,10 @@ const RegisterForm = ({ isOtpVerification = false }) => {
   const [countryCode, setCountryCode] = useState("");
   const [countDownStatus, setCountDownStatus] =
     useState<CountDownType>("start");
-    
-    const handleResend=()=>{
-      setCountDownStatus("start")
-    }
+
+  const handleResend = () => {
+    setCountDownStatus("start");
+  };
 
   const handleSubmit = () => {
     if (isOtpVerification) {
@@ -35,7 +36,7 @@ const RegisterForm = ({ isOtpVerification = false }) => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar mode="ios">
           <IonButtons slot="start">
             <IonBackButton color={"dark"}></IonBackButton>
           </IonButtons>
@@ -48,7 +49,9 @@ const RegisterForm = ({ isOtpVerification = false }) => {
         <div className={styles.container}>
           <p className={styles["dimmed-text"]}>
             Already have an account?&nbsp;
-            <span className={styles["highlighted-text"]}>Login</span>
+            <Link href={"/login"} className={styles["highlighted-text"]}>
+              Login
+            </Link>
           </p>
           <h6 className={styles["input-label"]}>First Name</h6>
           <div className={styles["input-box"]}>
@@ -107,7 +110,10 @@ const RegisterForm = ({ isOtpVerification = false }) => {
                 {countDownStatus == "finished" ? (
                   <p>
                     Didnt get a code ?
-                    <span onClick={handleResend} className={styles["highlighted-text"]}>
+                    <span
+                      onClick={handleResend}
+                      className={styles["highlighted-text"]}
+                    >
                       &nbsp;Resend
                     </span>
                   </p>

@@ -41,7 +41,7 @@ const Accordions = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion defaultExpanded className={styles["accordion"]}>
+          <Accordion className={styles["accordion"]}>
             <AccordionSummary expandIcon={<AddIcon fontSize="large" />}>
               <Typography fontSize={16}>
                 How do I activate my Nakheel Mall Gift Card?
@@ -63,7 +63,7 @@ const Accordions = () => {
                   <li>
                     Enter the necessary details, including the unique code found
                     on the card.
-                  </li>
+                  </li>   
                   <li>
                     Once the activation is complete, your gift card is ready to
                     use for a delightful shopping and dining experience at

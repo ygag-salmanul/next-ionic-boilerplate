@@ -3,19 +3,22 @@ import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRound
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { LANDING_CORPORATE_SERVICE_DATA } from "@/src/__mockData__/index.data";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useState } from "react";
 
 const CorporateService = () => {
+  const [service, setService] = useState(LANDING_CORPORATE_SERVICE_DATA[0]);
   return (
     <div className={styles["container"]}>
       <div className={styles["container-wrapper"]}>
         <div className={styles["container-ring"]}>
           <img
             className={styles["container-about-gift"]}
-            src="/assets/about-gift-cards.png"
-            alt=""
+            src={service.logo}
+            alt="icon"
           />
         </div>
         <div className={styles["container-buttons"]}>
@@ -35,157 +38,40 @@ const CorporateService = () => {
           nextEl: `.next`,
         }}
         modules={[Navigation]}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={(swiper) =>  setService(LANDING_CORPORATE_SERVICE_DATA[swiper.activeIndex])}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
-        <SwiperSlide>
-          <div>
-            <div className={styles["container-title"]}>
-              <h3 className={styles["primary"]}>
-              Buy Cards
-                <br />
-                <span className={styles["container-title-secondary"]}>
-                  The Inside Scoop
-                </span>
-              </h3>
-              <p>It’s Digital, Seamless & Quick</p>
+        {LANDING_CORPORATE_SERVICE_DATA.map((item,index) => (
+          <SwiperSlide key={index} >
+            
+            <div>
+              <div className={styles["container-title"]}>
+                <h3 className={styles["primary"]}>
+                  {item.headingPrimary}
+                  <br />
+                  <span className={styles["container-title-secondary"]}>
+                    {item.headingSecondary}
+                  </span>
+                </h3>
+                <p>{item.subHeading}</p>
+              </div>
+              <div className={styles["container-description"]}>
+                <p>
+                  {item.description1}
+                  <br />
+                  <br />
+                  {item.description2}
+                  <br />
+                  <br />
+                  {item.description3}
+                  <br />
+                  <br />
+                {item.description4}
+                </p>
+              </div>
             </div>
-            <div className={styles["container-description"]}>
-              <p>
-                Experience the ultimate shopping with Nakheel mall Gift Cards!
-                Our Gift Cards are your passport to the diverse world of retail
-                within our mall. When you purchase one of our Gift Cards,
-                you&apos;re not just giving a present; you&apos;re gifting an
-                unforgettable experience.
-                <br />
-                <br />
-                Simply load your Gift Card with your preferred amount, and
-                you&apos;re ready to explore our myriad of stores.
-                <br />
-                <br />
-                Present your card at checkout, and watch your purchase expenses
-                subtract from the card&apos;s balance. For added convenience,
-                check your card&apos;s balance online as needed.
-                <br />
-                <br />
-                Treat yourself or your loved ones to an exceptional Nakheel mall
-                adventure with our Gift Cards—the perfect way to celebrate any
-                occasion.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div>
-            <div className={styles["container-title"]}>
-              <h3 className={styles["primary"]}>
-                Gift Cards
-                <br />
-                <span className={styles["container-title-secondary"]}>
-                  The Inside Scoop
-                </span>
-              </h3>
-              <p>It’s Digital, Seamless & Quick</p>
-            </div>
-            <div className={styles["container-description"]}>
-              <p>
-                Experience the ultimate shopping with Nakheel mall Gift Cards!
-                Our Gift Cards are your passport to the diverse world of retail
-                within our mall. When you purchase one of our Gift Cards,
-                you&apos;re not just giving a present; you&apos;re gifting an
-                unforgettable experience.
-                <br />
-                <br />
-                Simply load your Gift Card with your preferred amount, and
-                you&apos;re ready to explore our myriad of stores.
-                <br />
-                <br />
-                Present your card at checkout, and watch your purchase expenses
-                subtract from the card&apos;s balance. For added convenience,
-                check your card&apos;s balance online as needed.
-                <br />
-                <br />
-                Treat yourself or your loved ones to an exceptional Nakheel mall
-                adventure with our Gift Cards—the perfect way to celebrate any
-                occasion.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div>
-            <div className={styles["container-title"]}>
-              <h3 className={styles["primary"]}>
-                Activate Card
-                <br />
-                <span className={styles["container-title-secondary"]}>
-                  The Inside Scoop
-                </span>
-              </h3>
-              <p>It’s Digital, Seamless & Quick</p>
-            </div>
-            <div className={styles["container-description"]}>
-              <p>
-                Experience the ultimate shopping with Nakheel mall Gift Cards!
-                Our Gift Cards are your passport to the diverse world of retail
-                within our mall. When you purchase one of our Gift Cards,
-                you&apos;re not just giving a present; you&apos;re gifting an
-                unforgettable experience.
-                <br />
-                <br />
-                Simply load your Gift Card with your preferred amount, and
-                you&apos;re ready to explore our myriad of stores.
-                <br />
-                <br />
-                Present your card at checkout, and watch your purchase expenses
-                subtract from the card&apos;s balance. For added convenience,
-                check your card&apos;s balance online as needed.
-                <br />
-                <br />
-                Treat yourself or your loved ones to an exceptional Nakheel mall
-                adventure with our Gift Cards—the perfect way to celebrate any
-                occasion.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div>
-            <div className={styles["container-title"]}>
-              <h3 className={styles["primary"]}>
-                Track Spends
-                <br />
-                <span className={styles["container-title-secondary"]}>
-                  The Inside Scoop
-                </span>
-              </h3>
-              <p>It’s Digital, Seamless & Quick</p>
-            </div>
-            <div className={styles["container-description"]}>
-              <p>
-                Experience the ultimate shopping with Nakheel mall Gift Cards!
-                Our Gift Cards are your passport to the diverse world of retail
-                within our mall. When you purchase one of our Gift Cards,
-                you&apos;re not just giving a present; you&apos;re gifting an
-                unforgettable experience.
-                <br />
-                <br />
-                Simply load your Gift Card with your preferred amount, and
-                you&apos;re ready to explore our myriad of stores.
-                <br />
-                <br />
-                Present your card at checkout, and watch your purchase expenses
-                subtract from the card&apos;s balance. For added convenience,
-                check your card&apos;s balance online as needed.
-                <br />
-                <br />
-                Treat yourself or your loved ones to an exceptional Nakheel mall
-                adventure with our Gift Cards—the perfect way to celebrate any
-                occasion.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
