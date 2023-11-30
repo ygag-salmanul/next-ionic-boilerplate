@@ -1,8 +1,9 @@
-import { style } from "@mui/system";
 import styles from "./Footer.module.scss";
+import { isPlatform } from "@ionic/react";
 const Footer = () => {
+  const isIOS = isPlatform("ios");
   return (
-    <div className={styles["container"]}>
+    <div className={`${styles["container"]} ${isIOS && styles["bottom-ios"]}`}>
       <p>© Powered by YOUGotaGift.com Ltd. -</p>
       {/* <br /> */}
       <p className={styles["container-primary"]}>
