@@ -49,7 +49,7 @@ const LoginForm = ({
           <IonButtons slot="start">
             <IonBackButton color={"dark"}></IonBackButton>
           </IonButtons>
-          <IonTitle className="ion-text-center">
+          <IonTitle className={`${styles['ion-title']} ion-text-center`}>
             <h2 className={styles.greeting}>Login</h2>
           </IonTitle>
         </IonToolbar>

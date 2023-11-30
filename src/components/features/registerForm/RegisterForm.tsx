@@ -36,11 +36,11 @@ const RegisterForm = ({ isOtpVerification = false }) => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar mode="ios">
+        <IonToolbar>
           <IonButtons slot="start">
             <IonBackButton color={"dark"}></IonBackButton>
           </IonButtons>
-          <IonTitle className="ion-text-center">
+          <IonTitle className={`${styles['ion-title']} ion-text-center`}>
             <h2 className={styles.greeting}>Create an Account</h2>
           </IonTitle>
         </IonToolbar>
